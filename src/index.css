@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'Arima';
+    src: url('./assets/fonts/Arima/static/Arima-Regular.ttf') ; 
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./assets/fonts//Lato/Lato-Regular.ttf'); 
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./assets/Poppins/Poppins-Bold.ttf');
+}
