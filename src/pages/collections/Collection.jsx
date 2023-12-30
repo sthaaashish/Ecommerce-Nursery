@@ -7,7 +7,7 @@ const Collection = () => {
       <h1 className="text-center mt-8 mb-4 text-green-700  text-3xl">
         Shop By Collections
       </h1>
-      <div className="grid grid-cols-2 md:flex  justify-center gap-10 p-3 ">
+      <div className=" flex flex-col md:flex-row  justify-center gap-10 p-3 ">
         {collectionData.map((data,index) => {
           return (
             <FadeIn direction={"up"} delay={index * 0.2}>
@@ -20,6 +20,9 @@ const Collection = () => {
         })}
       </div>
     </div>
+
+   
+
   );
 };
 
