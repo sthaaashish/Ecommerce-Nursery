@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,12 +13,13 @@ import { Rating } from "@material-tailwind/react";
 import { useDispatch } from "react-redux";
 import { addOrUpdateCart, addToWishlist } from "../features/userSlice";
 import FadeIn from "./Fade";
+import { ShimmerThumbnail } from "react-shimmer-effects";
 
 const CardSlider = ({ data }) => {
   const sliderRef = useRef(null);
   const nav = useNavigate();
   const dispatch = useDispatch();
-
+  const [loading, setLoading] = useState(true);
   const sliderSettings = {
     infinite: true,
     speed: 500,
@@ -68,9 +69,18 @@ const CardSlider = ({ data }) => {
                 <div className="p-3" key={index}>
                   <div className="relative ">
                     <div className=" overflow-hidden">
+                      {loading && (
+                        <ShimmerThumbnail
+                          height={300}
+                          width={300}
+                          className="m-0"
+                          rounded
+                        />
+                      )}
                       <img
                         src={`${baseUrl}${product.product_image}`}
                         alt="Product Image"
+                        onLoad={() => setLoading(false)}
                         className="rounded w-full h-[350px] md:h-[300px] object-cover object-center transition ease-in-out delay-150    hover:-translate-y-1 hover:scale-110  duration-300"
                         onClick={() => nav(`/productDetail/${product._id}`)}
                       />
